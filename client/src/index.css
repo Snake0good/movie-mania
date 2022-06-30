@@ -28,6 +28,10 @@ code {
   scrollbar-width: none;  /* Firefox */
 }
 
+.slider {
+  transition: 0.6s all;
+}
+
 
 /* * {
   outline: 1px solid red;

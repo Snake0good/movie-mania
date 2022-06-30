@@ -64,7 +64,7 @@ function TVshowSearch() {
               <h1 className='sticky text-3xl'>Your TV Search Results</h1>
                 <div className='flex w-fit h-fit flex-wrap'>
                     {movies.map((movie, id) => (
-                        <SmallMovie key={id} pic={movie.poster_path || movie.backdrop_path} title={movie.title || movie.original_name} rating={movie.vote_average} runningTime='' movieID={movie.id}/>
+                        <SmallMovie key={id} pic={movie.poster_path || movie.backdrop_path} title={movie.title || movie.original_name} rating={movie.vote_average} runningTime='' movieID={movie.id} mediaType={'tv'}/>
                         ))}
                 </div>
           </div>

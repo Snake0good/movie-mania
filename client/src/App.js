@@ -39,12 +39,12 @@ function App() {
                     
         <div className="h-[400px] object-center w-screen relative flex">
 
-          <img className="h-full w-full object-cover md:w-[60%] " src={`https://image.tmdb.org/t/p/w500/${topMovie.backdrop_path}`} />
+          <img className="h-full w-full object-cover md:w-[60%]" src={`https://image.tmdb.org/t/p/w500/${topMovie.backdrop_path}`} />
           <div className="absolute bottom-0 w-80 p-3 bg-[rgba(0,0,0,0.6)] rounded-tr-xl md:w-[40%] md:relative md:rounded-none md:justify-center md:flex md:flex-col md:p-4">
             <div className="flex space-x-4">
               <h1 className="text-3xl font-bold">
               {topMovie.title || topMovie.name}</h1>
-              <span className="inline-flex place-items-center text-xl text-yellow-300"> {topMovie.vote_average} <FaStar />
+              <span className="inline-flex place-items-center text-xl text-yellow-300"> { topMovie.vote_average > 0 ? topMovie.vote_average.toFixed(1) : topMovie.vote_average } <FaStar />
               </span>
             </div>
             
@@ -54,15 +54,27 @@ function App() {
               <Link 
                 to='/watching'
                 state={{
-                  topMovie
+                  movieID: topMovie.id,
+                  mediaType: topMovie.media_type
                 }}
                   >
                 <button className="bg-white text-black p-1 pl-5 pr-5 mr-2 inline-flex place-items-center">
                   <FaPlay className="mr-3"/> 
                   Play 
                 </button>
+              </Link>
+              <Link
+                to="/movieInfo"
+                state={{
+                  movieID: topMovie.id,
+                  mediaType: topMovie.media_type
+                }}
+              >
+                <button className="bg-[rgba(255,255,255,0.3)] text-white p-1 pl-5 pr-5 mr-2 inline-flex place-items-center">
+                <FaInfo className="mr-3"/> 
+                Info 
+                </button>
               </Link> 
-              <button className="bg-[rgba(255,255,255,0.3)] text-white p-1 pl-5 pr-5 mr-2 inline-flex place-items-center"><FaInfo className="mr-3"/> Info </button>
             </div>
           </div>
         </div>
@@ -71,7 +83,7 @@ function App() {
           <Rows rowID={1} topTitle="Trending Now" searchTerm='trending' />
           <Rows rowID={2} topTitle="Popular" searchTerm='popular' />
           <Rows rowID={3} topTitle="Comedies" searchTerm='comedy' />
-          <Rows rowID={4} topTitle="Action" searchTerm='action' />  
+          <Rows rowID={4} topTitle="Money" searchTerm='economics' />  
           <Rows rowID={5} topTitle="Teens" searchTerm='teen' />
           <Rows rowID={6} topTitle="Horror" searchTerm='horror' /> 
         </div>

@@ -45,27 +45,22 @@ function Footer() {
                         <h6 className='font-bold text-lg'>MovieMania</h6>
                     </div>
                     <p>
-                    The MovieMania website was created and maintained by Jacob Good. You can contact him and see his work on <a href="http://www.jacobegood.com">jacobegood.com</a>. Please explore! Movies were fetched through <a href="https://www.themoviedb.org/">The Movie Database</a>.
+                    The MovieMania website was created and is maintained by Jacob Good. You can contact him and see his work on <a className='underline' href="http://www.jacobegood.com">jacobegood.com</a>. Please explore! Movies were fetched through <a className='underline' href="https://www.themoviedb.org/">The Movie Database</a>.
                     </p>
                 </div>
                 <div className="hidden md:block">
                     <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
                     Tech Stack
                     </h6>
-                    <p className="mb-4">
-                    <a href="#!" className="text-gray-600">HTML/CSS/JS</a>
+                    <p className="mb-4 text-gray-600">HTML/CSS/JS
                     </p>
-                    <p className="mb-4">
-                    <a href="#!" className="text-gray-600">React</a>
+                    <p className="mb-4 text-gray-600">React
                     </p>
-                    <p className="mb-4">
-                    <a href="#!" className="text-gray-600">Tailwind</a>
+                    <p className="mb-4 text-gray-600">Tailwind
                     </p>
-                    <p className="mb-4">
-                    <a href="#!" className="text-gray-600">Node/Express</a>
+                    <p className="mb-4 text-gray-600">Node/Express
                     </p>
-                    <p>
-                    <a href="#!" className="text-gray-600">MongoDB</a>
+                    <p className="text-gray-600">MongoDB
                     </p>
                 </div>
                 <div className="hidden md:block">
