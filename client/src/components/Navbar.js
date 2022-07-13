@@ -17,7 +17,8 @@ function classNames(...classes) {
 export default function Example() {
   const local = localStorage.getItem("user")
   const userName = local ? `Hi ${local.substring(0, local.indexOf('@'))}` : null
-  const userDirect = local ? "/" : "/signup"
+  
+  const nameMenu = local ? null : "Signup / Login"
 
   
   // the logout function
@@ -33,7 +34,7 @@ export default function Example() {
     { name: 'TV Shows', to: '/tvSearch', current: false },
     { name: 'Movies', to: '/movieSearch', current: false },
     // { name: 'My List', to: '/mylinks', current: false },
-    { name: 'Signup / Login', to: '/signup', current: false},
+    { name: nameMenu, to: '/signup', current: false}
     ]
 
   return (

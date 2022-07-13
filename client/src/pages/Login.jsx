@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { LockClosedIcon } from '@heroicons/react/solid'
 import logo from '../images/logo.png'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -35,6 +35,7 @@ function Login() {
     
     try {
       const url = "http://localhost:5001/login"
+      // const url = "https://movie-mania-app-54321.herokuapp.com/login"
       await axios.post(url, userData)
 
       localStorage.setItem("user", userData.email)
@@ -99,9 +100,11 @@ function Login() {
 
             <div className="flex place-items-center justify-between">
               <div className="text-sm">
-                <a href="/signup" className="font-medium text-slate-600 hover:text-slate-500">
+                <Link 
+                  to="/signup" 
+                  className="font-medium text-slate-600 hover:text-slate-500">
                   Not a member? <span className='text-indigo-300'>Sign up here.</span>
-                </a>
+                </Link>
               </div>
             </div>
 

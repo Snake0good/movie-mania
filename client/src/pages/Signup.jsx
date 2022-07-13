@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { LockClosedIcon } from '@heroicons/react/solid'
 import logo from '../images/logo.png'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function Signup() {
@@ -44,6 +44,7 @@ function Signup() {
 
     try {
       const url = "http://localhost:5001/signup"
+      // const url = "https://movie-mania-app-54321.herokuapp.com/signup"
       // await axios.post(url, userData)
       // .then(localStorage.setItem("user", userData.email))
       // .then(navigate('/'))
@@ -114,9 +115,12 @@ function Signup() {
 
             <div className="flex place-items-center justify-between">
               <div className="text-sm">
-                <a href="/login" className="font-medium text-slate-600 hover:text-slate-500">
-                  Already a member? <span className='text-indigo-300'>Log in here.</span>
-                </a>
+                <Link 
+                  to="/login" 
+                  className="font-medium text-slate-600 hover:text-slate-500">
+                  Already a member? <span className='text-indigo-300'>Log in here.
+                  </span>
+                </Link>
               </div>
             </div>
 

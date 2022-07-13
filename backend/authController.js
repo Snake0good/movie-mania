@@ -26,7 +26,6 @@ module.exports.signup_get = async (req, res) => {
 
 module.exports.login_get = async (req, res) => {
     console.log('working here')
-
 }
 
 // signing up a new user
@@ -44,7 +43,6 @@ module.exports.signup_post = async (req, res) => {
         const errors = handleError(err)
         res.status(400).json({ errors });
     }
-    
 }
 
 // logging in a returning user
@@ -67,4 +65,3 @@ module.exports.login_post = async (req, res) => {
         res.status(500).send(err)
     }
 }
-
