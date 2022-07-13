@@ -20,7 +20,8 @@ mongoose.connect(dbURI,)
     .catch((err) => console.log(err))
 
 // routes 
-app.use(authRoutes);
+app.use('/login', authRoutes);
+app.use('/signup', authRoutes);
 
 // Serve frontend
 app.use(express.static(path.join(__dirname, '../frontend/build')));
