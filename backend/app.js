@@ -22,11 +22,13 @@ mongoose.connect(dbURI,)
 // routes 
 app.use(authRoutes);
 
-// serve front end
-app.use(express.static(path.join(__dirname, "../client/build")))
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../', 'frontend', 'build', 'index.html'));
-})
+// Serve frontend
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, '../', 'frontend', 'build', 'index.html'))
+);
+  
 
 app.listen(port, () => {
     console.log(`Server is now listening on port ${port}`)
