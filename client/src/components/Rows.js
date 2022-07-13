@@ -61,10 +61,10 @@ function Rows({topTitle, searchTerm, rowID}) {
         <div className='relative w-full mt-6 overflow-hidden'>
             <h1 className='sticky text-3xl'>{topTitle}</h1>    
             <FaCaretLeft 
-                className='absolute text-3xl p-2 left-0 h-full bg-[rgba(0,0,0,0.4)] z-[20] hover:bg-[rgba(0,0,0,0.9)]'
+                className='absolute text-3xl p-2 left-0 h-full bg-[rgba(0,0,0,0.4)] z-[20] hover:bg-[rgba(0,0,0,0.9)] cursor-pointer'
                 onClick={moveLeft} />
             <FaCaretRight 
-                    className='absolute text-3xl p-2 right-0 h-full bg-[rgba(0,0,0,0.4)] z-[20] hover:bg-[rgba(0,0,0,0.9)]'
+                    className='absolute text-3xl p-2 right-0 h-full bg-[rgba(0,0,0,0.4)] z-[20] hover:bg-[rgba(0,0,0,0.9)] cursor-pointer'
                     onClick={moveRight}/>
             <div className='no-scrollbar relative overflow-x-auto overflow-y-hidden'>
 

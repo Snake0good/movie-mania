@@ -3,6 +3,12 @@ import { Fa500Px, FaCaretDown, FaInfo, FaPlay, FaPlus, FaThumbsUp } from 'react-
 import { Link } from 'react-router-dom';
 
 function SmallMovie({title, desc, pic, rating, runningTime, movieID, mediaType}) {
+    function addLike(e) {
+        console.log('clicked')
+        e.currentTarget.classList.toggle('text-indigo-500')
+        e.currentTarget.classList.toggle('hover:text-green-300')
+    }
+
 
     function checkPics() {
         if(pic== null) {
@@ -34,7 +40,10 @@ function SmallMovie({title, desc, pic, rating, runningTime, movieID, mediaType})
                                 }}>
                             <FaPlay className='flex place-items-center mr-3 hover:text-green-300 hover:cursor-pointer'/>
                         </Link>
-                        <FaThumbsUp className='flex place-items-center mr-3 hover:text-green-300 hover:cursor-pointer'/>
+                        <FaThumbsUp 
+                            className='flex place-items-center mr-3 hover:text-green-300 hover:cursor-pointer'
+                            onClick={addLike}
+                        />
                     </div>
                     <Link 
                         to='/movieInfo'
@@ -51,7 +60,7 @@ function SmallMovie({title, desc, pic, rating, runningTime, movieID, mediaType})
                 
                 <h1 className='text-md t'> {title.length > 15 ? `${title.substring(0, 16)}...` : title} </h1>
                 <div>
-                    <p className='text-sm text-yellow-500'> {rating} </p>
+                    <p className='text-sm text-yellow-500'> {rating.toFixed(1)} </p>
                     <p className='text-sm'> {runningTime} </p>
                 </div>
                 <p className='text-sm'> { } </p>

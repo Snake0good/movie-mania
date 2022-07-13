@@ -9,12 +9,15 @@ function Login() {
     email: '',
     password: ''
   })
+  const [errMessage, setErrMessage] = useState('')
+
 
   const navigate = useNavigate()
 
   const { email, password } = formData
 
   const onChange = (e) => {
+    setErrMessage('')
     setFormData((prevState) => ({
       ...prevState, 
       [e.target.name]: e.target.value
@@ -22,6 +25,7 @@ function Login() {
   }
 
   const onSubmit = async (e) => {
+    console.log('logged in')
     e.preventDefault()
 
     const userData = {
@@ -38,6 +42,7 @@ function Login() {
 
     } catch(err) {
       console.error(err)
+      setErrMessage('Error: Unknown account or incorrect password')
     }
   }
 
@@ -59,9 +64,6 @@ function Login() {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm space-y-6">
               <div>
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
-                </label>
                 <input
                   id="email-address"
                   name="email"
@@ -72,11 +74,12 @@ function Login() {
                   className="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
                 />
+                <div 
+                  className='text-red-500 h-6'>
+                    {errMessage ? errMessage : ''}
+                </div>
               </div>
               <div>
-                <label htmlFor="password" className="sr-only">
-                  Password
-                </label>
                 <input
                   id="password"
                   name="password"
@@ -87,6 +90,10 @@ function Login() {
                   className="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
                 />
+                <div 
+                  className='text-red-500 h-6'>
+                    {errMessage ? errMessage : ''}
+                </div>
               </div>
             </div>
 

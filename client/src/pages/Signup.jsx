@@ -9,6 +9,7 @@ function Signup() {
     email: '',
     password: ''
   })
+  const [errMessage, setErrMessage] = useState('')
 
   const navigate = useNavigate()
 
@@ -22,6 +23,9 @@ function Signup() {
   }
 
   const onSubmit = async (e) => {
+    console.log('signed up')
+    setErrMessage('')
+
     e.preventDefault()
 
     const userData = {
@@ -29,13 +33,35 @@ function Signup() {
       password
     }
     
+    // try {
+    //   const url = "http://localhost:5001/signup"
+    //   await axios.post(url, userData)
+    //   navigate("/")
+
+    // } catch(err) {
+    //   console.error(err)
+    // }
+
     try {
       const url = "http://localhost:5001/signup"
+      // await axios.post(url, userData)
+      // .then(localStorage.setItem("user", userData.email))
+      // .then(navigate('/'))
+
+      // this should await a post and then check for errors
       await axios.post(url, userData)
-      navigate("/login")
+        .then(function (response) {
+          console.log(response) 
+          localStorage.setItem("user", userData.email)
+          navigate('/')
+        })
+      
+
     } catch(err) {
-      console.error(err)
+      console.error('catch', err.message)
+      setErrMessage('Error: User already exists.')
     }
+
   }
 
 
@@ -52,14 +78,11 @@ function Signup() {
             <h2 className="mt-6 text-center text-3xl font-extrabold text-white">Sign Up</h2>
           </div>
           <form
-            onSubmit={onSubmit} 
+            onSubmit={onSubmit}
             className="mt-8 space-y-6">
-            <input type="hidden" name="remember" defaultValue="true" />
+            <input type="hidden"/>
             <div className="rounded-md shadow-sm space-y-6">
-              <div>
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
-                </label>
+              <div> 
                 <input
                   id="email-address"
                   name="email"
@@ -70,11 +93,12 @@ function Signup() {
                   className="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
                 />
+                <div 
+                  className='text-red-500 h-6'>
+                    {errMessage ? errMessage : ''}
+                </div>
               </div>
               <div>
-                <label htmlFor="password" className="sr-only">
-                  Password
-                </label>
                 <input
                   id="password"
                   name="password"
@@ -98,7 +122,6 @@ function Signup() {
 
             <div>
               <button
-                type="submit"
                 className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-slate-600 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500"
               >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">

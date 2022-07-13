@@ -1,10 +1,9 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import logo from '../images/logo.png'
 import { FaSearch } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 // user signed in?
 
@@ -17,17 +16,25 @@ function classNames(...classes) {
 
 export default function Example() {
   const local = localStorage.getItem("user")
-  const userName = local ? `Hi ${local.substring(0, local.indexOf('@'))}` : 'Login / Signup'
+  const userName = local ? `Hi ${local.substring(0, local.indexOf('@'))}` : null
   const userDirect = local ? "/" : "/signup"
 
+  
+  // the logout function
+  const navigate = useNavigate()
+  
+  const logout = () => {
+    localStorage.removeItem('user')
+    navigate("/")
+  }
 
   const navigation = [
     { name: 'Home', to: '/', current: false },
     { name: 'TV Shows', to: '/tvSearch', current: false },
     { name: 'Movies', to: '/movieSearch', current: false },
     // { name: 'My List', to: '/mylinks', current: false },
-    { name: `${userName}`, to: `${userDirect}`, current: false }
-  ]
+    { name: 'Signup / Login', to: '/signup', current: false},
+    ]
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -80,17 +87,29 @@ export default function Example() {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                >
-                  <span className="sr-only">Search</span>
-                  <Link to='/search'>
-                    <FaSearch className="h-6 w-6" aria-hidden="true"/>
-                  </Link>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ">
+                { userName ? <h1 className='ml-12 mr-5'>{userName}</h1> : '' }
                 
-                </button>
+                <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
+                  { local ?
+                      <h1 
+                      className='text-xl font-bold mr-6 cursor-pointer hover:underline'
+                      onClick={() => logout()}>
+                        Logout
+                      </h1>
+                    : null }
+
+                  <button
+                    type="button"
+                    className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                    >
+                    <span className="sr-only">Search</span>
+                    <Link to='/search'>
+                      <FaSearch className="h-6 w-6" aria-hidden="true"/>
+                    </Link>
+                  
+                  </button>
+                </div>
 
                 {/* Profile dropdown */}
                 {/* <Menu as="div" className="ml-3 relative z-50">

@@ -34,12 +34,17 @@ module.exports.signup_post = async (req, res) => {
     const { email, password } = req.body 
 
     try {
-        const user = await User.create({ email, password });
+        const user = await User.create({ 
+            email: req.body.email, 
+            password: req.body.password });
+        res.status(200).json('you are in')
     } 
+
     catch (err) {
         const errors = handleError(err)
         res.status(400).json({ errors });
     }
+    
 }
 
 // logging in a returning user
