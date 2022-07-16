@@ -43,7 +43,8 @@ function Signup() {
     // }
 
     try {
-      const url = "http://localhost:5001/signup"
+      const url = "/signup"
+      // const url = "http://localhost:5001/signup"
       // const url = "https://movie-mania-app-54321.herokuapp.com/signup"
       // await axios.post(url, userData)
       // .then(localStorage.setItem("user", userData.email))

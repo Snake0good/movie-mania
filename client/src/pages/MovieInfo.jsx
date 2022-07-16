@@ -10,7 +10,7 @@ function MovieInfo() {
     const movieID = location.state.movieID
     const mediaType = location.state.mediaType
 
-    console.log('this page doesnot work')
+    console.log('this page does not work')
     console.log(movieID)   
     console.log('mediaType: ', mediaType) 
     const API_KEY = '60e1cf29566133f8db1d2b4c631cbf37'

@@ -34,7 +34,8 @@ function Login() {
     }
     
     try {
-      const url = "http://localhost:5001/login"
+      const url = "/login"
+      // const url = "http://localhost:5001/login"
       // const url = "https://movie-mania-app-54321.herokuapp.com/login"
       await axios.post(url, userData)
 
