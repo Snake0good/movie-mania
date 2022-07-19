@@ -37,13 +37,21 @@ function Login() {
       const url = "/login"
       // const url = "http://localhost:5001/login"
       // const url = "https://movie-mania-app-54321.herokuapp.com/login"
-      await axios.post(url, userData)
+      
+      // await axios.post(url, userData)
+      //   .then(localStorage.setItem("user", userData.email))
+      //   .then(navigate("/"))
 
-      localStorage.setItem("user", userData.email)
-      navigate("/")
+        // this should await a post and then check for errors
+      await axios.post(url, userData)
+      .then(function (response) {
+        console.log(response) 
+        localStorage.setItem("user", userData.email)
+        navigate('/')
+      })
 
     } catch(err) {
-      console.error(err)
+      console.log('error man')
       setErrMessage('Error: Unknown account or incorrect password')
     }
   }

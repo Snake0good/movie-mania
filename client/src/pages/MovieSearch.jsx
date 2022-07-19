@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import { FaArrowLeft } from 'react-icons/fa'
 import Footer from '../components/Footer'
 import HomeButton from '../components/HomeButton'
 import Navbar from '../components/Navbar'

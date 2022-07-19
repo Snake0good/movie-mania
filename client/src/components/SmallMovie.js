@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { Fa500Px, FaCaretDown, FaInfo, FaPlay, FaPlus, FaThumbsUp } from 'react-icons/fa'
+import { FaInfo, FaPlay, FaThumbsUp } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 
 function SmallMovie({title, desc, pic, rating, runningTime, movieID, mediaType}) {

@@ -1,25 +1,20 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import { FaArrowLeft } from 'react-icons/fa'
+import { useState } from 'react'
 import Footer from '../components/Footer'
 import HomeButton from '../components/HomeButton'
 import Navbar from '../components/Navbar'
-import SearchBar from '../components/SearchBar'
 import SmallMovie from '../components/SmallMovie'
 
 function TVshowSearch() {
     const [movies, setMovies] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
     
     const url = `https://api.themoviedb.org/3/search/tv?api_key=60e1cf29566133f8db1d2b4c631cbf37&language=en-US&page=1&query=${searchTerm}`
     
   
-    const handelClick = async () => {
-      setIsLoading(true);
-  
+    const handelClick = async () => {  
       try {
-        const respones = await fetch(url)
+        const response = await fetch(url)
         .then(res => res.json())
         .then(data => {
           console.log(data)
@@ -27,11 +22,8 @@ function TVshowSearch() {
         })
       } catch (err) {
         console.log(err)
-      } finally {
-        setIsLoading(false)
-      }
+      } 
     }
-  
   
     return (
       <div className='bg-slate-900 text-white min-h-screen flex flex-col place-content-between	'>

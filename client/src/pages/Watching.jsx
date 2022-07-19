@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
 
 function Watching() {
@@ -19,13 +19,13 @@ function Watching() {
     }
 
 
-    useEffect(async () => {
-        await fetch(videoURL) 
-        .then(response => response.json())
-        .then(data => {
-            console.log(data.results)
-            data.results.length > 0 ? setTheVideo(data.results[0]) : setTheVideo(data.results)
-        })
+    useEffect(() => {
+        fetch(videoURL) 
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.results)
+                data.results.length > 0 ? setTheVideo(data.results[0]) : setTheVideo(data.results)
+            })
     }, [])
 
     

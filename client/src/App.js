@@ -3,8 +3,7 @@ import Rows from "./components/Rows";
 import Navbar from './components/Navbar'
 import Footer from "./components/Footer";
 import { FaInfo, FaPlay, FaStar } from "react-icons/fa";
-
-import { Link, Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 function App() {  
@@ -39,7 +38,7 @@ function App() {
                     
         <div className="h-[400px] object-center w-screen relative flex">
 
-          <img className="h-full w-full object-cover md:w-[60%]" src={`https://image.tmdb.org/t/p/w500/${topMovie.backdrop_path}`} />
+          <img className="h-full w-full object-cover md:w-[60%]" src={`https://image.tmdb.org/t/p/w500/${topMovie.backdrop_path}`} alt={topMovie.backdrop_path} />
           <div className="absolute bottom-0 w-80 p-3 bg-[rgba(0,0,0,0.6)] rounded-tr-xl md:w-[40%] md:relative md:rounded-none md:justify-center md:flex md:flex-col md:p-4">
             <div className="flex space-x-4">
               <h1 className="text-3xl font-bold">
