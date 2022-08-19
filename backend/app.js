@@ -11,7 +11,6 @@ const app = express()
 const dbURI = 'mongodb+srv://jacobegood:jacobegood@goodcluster.czb5vne.mongodb.net/movie-mania'
 mongoose.connect(dbURI,)
     .then(console.log('app is connect to mongoDB'))
-    // .then((result) => app.listen(port))
     .catch((err) => console.log(err))
 
 app.use(express.urlencoded({ extended: true }))

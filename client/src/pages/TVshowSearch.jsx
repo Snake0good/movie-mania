@@ -5,11 +5,13 @@ import HomeButton from '../components/HomeButton'
 import Navbar from '../components/Navbar'
 import SmallMovie from '../components/SmallMovie'
 
+const API_KEY = process.env.REACT_APP_API_KEY
+
 function TVshowSearch() {
     const [movies, setMovies] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
     
-    const url = `https://api.themoviedb.org/3/search/tv?api_key=60e1cf29566133f8db1d2b4c631cbf37&language=en-US&page=1&query=${searchTerm}`
+    const url = `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&language=en-US&page=1&query=${searchTerm}`
     
   
     const handelClick = async () => {  

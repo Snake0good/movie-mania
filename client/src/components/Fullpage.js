@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { FaRegWindowClose } from 'react-icons/fa'
 
+const API_KEY = process.env.REACT_APP_API_KEY
 
 
 function Fullpage({ movieID, setIsOpen }) {
     console.log(movieID)
-    const API_KEY = '60e1cf29566133f8db1d2b4c631cbf37'
     let url = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${API_KEY}&language=en-US`
 
     const [movie, setMovie] = useState()

@@ -9,6 +9,7 @@ import MovieSearch from './pages/MovieSearch';
 import TVshowSearch from './pages/TVshowSearch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Search from './pages/Search';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,12 +17,13 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route index path="/" element={<App />} />
-      <Route path='watching' element={<Watching />} />
-      <Route path='movieInfo' element={<MovieInfo />} />
-      <Route path='movieSearch' element={<MovieSearch />} />
-      <Route path='tvSearch' element={<TVshowSearch />} />
-      <Route path='login' element={<Login />} />
-      <Route path='signup' element={<Signup />} />
+      <Route path='/watching' element={<Watching />} />
+      <Route path='/movieInfo' element={<MovieInfo />} />
+      <Route path='/movieSearch' element={<MovieSearch />} />
+      <Route path='/tvSearch' element={<TVshowSearch />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/signup' element={<Signup />} />
+      <Route path='/search' element={<Search />} />
     </Routes>
   </BrowserRouter>
 );

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
 
+const API_KEY = process.env.REACT_APP_API_KEY
+
+
 function Watching() {
     const location = useLocation()
     const movieID = location.state.movieID
     const mediaType = location.state.mediaType
-    const API_KEY = '60e1cf29566133f8db1d2b4c631cbf37'
     const [theVideo, setTheVideo] = useState([])
     
     let videoURL =  `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${API_KEY}&language=en-US`

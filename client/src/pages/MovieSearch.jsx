@@ -5,18 +5,19 @@ import HomeButton from '../components/HomeButton'
 import Navbar from '../components/Navbar'
 import SmallMovie from '../components/SmallMovie'
 
+const API_KEY = process.env.REACT_APP_API_KEY
+
 function MovieSearch() {
   const [movies, setMovies] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=60e1cf29566133f8db1d2b4c631cbf37&language=en-US&query=${searchTerm}&page=1&include_adult=false`
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}&page=1&include_adult=false`
   
-
+  
   const handelClick = async () => {
-    setIsLoading(true);
-
     try {
+      console.log('try')
       const respones = await fetch(url)
       .then(res => res.json())
       .then(data => {

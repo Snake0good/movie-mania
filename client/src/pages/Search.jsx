@@ -29,16 +29,6 @@ function Search() {
               </div>
             </div>
 
-
-            
-           
-              
-            
-
-
-
-
-
             <Footer />
     </div>
   )

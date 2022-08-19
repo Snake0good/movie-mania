@@ -1,12 +1,8 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import logo from '../images/logo.png'
 import { FaSearch } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
-
-// user signed in?
-
 
 
 
@@ -14,7 +10,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Navbar() {
   const local = localStorage.getItem("user")
   const userName = local ? `Hi ${local.substring(0, local.indexOf('@'))}` : null
   

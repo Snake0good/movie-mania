@@ -5,15 +5,12 @@ import Footer from '../components/Footer'
 import HomeButton from '../components/HomeButton'
 import Navbar from '../components/Navbar'
 
+const API_KEY = process.env.REACT_APP_API_KEY
+
 function MovieInfo() {
     const location = useLocation();
     const movieID = location.state.movieID
     const mediaType = location.state.mediaType
-
-    console.log('this page does not work')
-    console.log(movieID)   
-    console.log('mediaType: ', mediaType) 
-    const API_KEY = '60e1cf29566133f8db1d2b4c631cbf37'
 
     let infoURL = ''
     let videoURL = ''
@@ -80,7 +77,7 @@ function MovieInfo() {
             <h1 className='w-full h-fit text-5xl text-center'>{theMovie.name || theMovie.title}</h1>
             
             <section className='w-full flex flex-col md:flex-row p-5 flex-start justify-center place-items-start'>
-                <img className='w-full md:w-96 object-contain' src={`https://image.tmdb.org/t/p/w500/${theMovie.poster_path}`}  />
+                <img className='w-full md:w-96 object-contain' src={`https://image.tmdb.org/t/p/w500/${theMovie.poster_path}`} alt={theMovie.poster_path}  />
                 <div className='w-full md:w-1/2 flex flex-wrap justify-center'>
                     <p className='text-xl p-5'>{ theMovie.overview }</p>
 
